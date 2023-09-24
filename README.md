@@ -3,10 +3,8 @@
 ## Otsikko
 
 <br>
-Tästä [Image](www.google.com).
+Tästä pääset [Googleen](www.google.com).
 <br>
--Ensimmäinen
--Toinen
 <br>
 ### Testikuva:
 <img src="kuva.jpg">
