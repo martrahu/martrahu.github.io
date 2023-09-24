@@ -7,6 +7,6 @@ Tästä [Image](www.google.com).
 <br>
 -Ensimmäinen
 -Toinen
-<br<
+<br>
 ### Testikuva:
 <img src="kuva.jpg">
