@@ -3,7 +3,7 @@
 ## Otsikko
 
 <br>
-Tästä pääset [Googleen](www.google.com).
+Tästä pääset [Googleen](http://www.google.com).
 <br>
 <br>
 
