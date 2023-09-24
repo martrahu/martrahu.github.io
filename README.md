@@ -11,6 +11,7 @@ Tästä pääset [Googleen](http://www.google.com).
 | -------- | -------- |
 | Cell 1   | Cell 2   |
 <br>
+---
 <br>
 
 ### Testikuva:
