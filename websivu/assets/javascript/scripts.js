@@ -75,7 +75,7 @@ function temp() {
         .then(response => response.json())
         .then(data => {
             document.getElementById("kuva").src = "/assets/pictures/" + ticker.substring(0, ticker.length - 3).toLowerCase() + ".png"
-            document.getElementById("themebtn").value = "/assets/pictures/"+ticker.toLowerCase().substring(0, ticker.length - 3).toString() + ".png"
+            //document.getElementById("themebtn").value = "/assets/pictures/"+ticker.toLowerCase().substring(0, ticker.length - 3).toString() + ".png"
             const close = new Array();
 
             const pvm = new Array();
