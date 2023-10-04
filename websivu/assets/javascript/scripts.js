@@ -74,8 +74,8 @@ function temp() {
     fetch('https://api.binance.com/api/v3/klines?symbol=' + ticker + '&interval=1d&limit=30')
         .then(response => response.json())
         .then(data => {
-            document.getElementById("kuva").src = "/assets/pictures/" + ticker.substring(0, ticker.length - 3) + ".png"
-
+            document.getElementById("kuva").src = "/assets/pictures/" + ticker.substring(0, ticker.length - 3).toLowerCase + ".png"
+            document.getElementById("themebtn").value = ticker.substring(0, ticker.length - 3).toLowerCase() + ".png"
             const close = new Array();
 
             const pvm = new Array();
