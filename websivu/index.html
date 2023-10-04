@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kryptokurssit</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>kryptovaluuttojen kursseja</h1>
+        </div>
+        <div class="menu">
+
+            <a id="bitcoin">bitcoin</a>
+            <a id="ethereum">ethereum</a>
+            <a id="dogecoin">dogecoin</a>
+
+            <a href="tietoa.html">lisätietoa</a>
+            <br><br>
+            <input class="theme" id="themebtn" type="submit" value="dark theme" onclick="myFunction_set()">
+
+        </div>
+        <div class="main" id="main">
+            <canvas id="myChart"></canvas>
+
+        </div>
+
+        <div class="oikSivu">
+            <div class="kuva">
+                <figure>
+                    <img id="kuva" src="assets/pictures/btc.png" alt="kuva" width="100" height="100">
+                </figure>
+            </div>
+
+            <p class="today" id="today">Tämän päivän:</p>
+
+        </div>
+    </div>
+
+    <h1 id="graaf"></h1>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/javascript/scripts.js"></script>
+</body>
+
+</html>

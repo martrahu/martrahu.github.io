@@ -1,0 +1,111 @@
+/* CSS styles */
+
+:root {
+    --lightblue: #e2effb;
+    --blue: #0c1483;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.theme {
+    position: relative;
+    bottom: 0px;
+    background-color: var(--blue);
+    border: none;
+    color: var(--lightblue);
+    padding: 10px 40px;
+    font-size: 10px;
+}
+
+
+
+.container {
+    display: grid;
+
+    grid-template-areas:
+        'header  '
+        'main  '
+        'footer ';
+    gap: 10px;
+    background-color: var(--blue);
+    padding: 10px;
+    color: var(--blue);
+}
+
+.container>div {
+    background-color: var(--lightblue);
+    padding: 20px 0;
+
+}
+
+.header {
+    text-align: center;
+}
+
+.menu {
+    font-size: 24px;
+    line-height: 40px;
+
+}
+
+.oikSivu {
+    display: grid;
+    grid-template-areas:
+        'kuva'
+        'today';
+    gap: 10px;
+    background-color: var(--blue);
+    padding: 10px;
+
+}
+
+/* unvisited link */
+a:link {
+    color: var(--blue);
+}
+
+/* visited link */
+a:visited {
+    color: #ff27db;
+}
+
+/* mouse over link */
+a:hover {
+    color: green;
+}
+
+/* selected link */
+a:active {
+    color: #015ba5;
+}
+
+img:hover {
+    opacity: 0.5;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+img {
+    animation-name: fadein;
+    animation-duration: 4s;
+}
