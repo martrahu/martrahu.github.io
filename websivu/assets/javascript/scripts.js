@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pvm.push(new Date(temp[i][0]).toLocaleDateString())
             }
 
-            rs = String(getComputedStyle(r).getPropertyValue('--blue'))
+            
             const ctx = document.getElementById('myChart');
             myline = new Chart(ctx, {
                 type: 'line',
@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         borderWidth: 1,
                         fill: false,
                         borderColor: '#000000',//#329ef7',
-                        labelColor:'#000000',
                         tension: 0.1
                     }]
                 },
@@ -68,6 +67,12 @@ const doge = document.getElementById('dogecoin');
 doge.addEventListener("click", () => {
     ticker = "DOGEEUR"
     glabel = "dogecoin"
+    temp();
+});
+const lite = document.getElementById('litecoin');
+lite.addEventListener("click", () => {
+    ticker = "LTCEUR"
+    glabel = "litecoin"
     temp();
 });
 
