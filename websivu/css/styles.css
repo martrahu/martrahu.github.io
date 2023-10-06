@@ -91,7 +91,7 @@
 
     /* visited link */
     a:visited {
-        color: #ff27db;
+        color: var(--blue);
     }
 
     /* mouse over link */
@@ -101,7 +101,7 @@
 
     /* selected link */
     a:active {
-        color: #015ba5;
+        color: var(--blue);
     }
 
     @keyframes fadein {
