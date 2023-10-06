@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pvm.push(new Date(temp[i][0]).toLocaleDateString())
             }
 
+            rs = String(getComputedStyle(r).getPropertyValue('--blue'))
             const ctx = document.getElementById('myChart');
             myline = new Chart(ctx, {
                 type: 'line',
@@ -32,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         data: close,
                         borderWidth: 1,
                         fill: false,
-                        borderColor: '#329ef7',
+                        borderColor: '#000000',//#329ef7',
+                        labelColor:'#000000',
                         tension: 0.1
                     }]
                 },
@@ -74,7 +76,7 @@ function temp() {
     fetch('https://api.binance.com/api/v3/klines?symbol=' + ticker + '&interval=1d&limit=30')
         .then(response => response.json())
         .then(data => {
-            document.getElementById("kuva").src = "/websivu/assets/pictures/" + ticker.substring(0, ticker.length - 3).toLowerCase() + ".png"
+            document.getElementById("kuva").src = "/assets/pictures/" + ticker.substring(0, ticker.length - 3).toLowerCase() + ".png"
             //document.getElementById("themebtn").value = "/assets/pictures/"+ticker.toLowerCase().substring(0, ticker.length - 3).toString() + ".png"
             const close = new Array();
 
@@ -92,6 +94,7 @@ function temp() {
             myline.data.datasets[0].data = close;
             myline.data.datasets[0].label = glabel;
             myline.data.labels = pvm;
+            myline.data.datasets[0].borderColor=document.getElementById("themebtn").value == "light theme"?'#ffffff':'#000000',
             myline.update();
 
             updateToday(open, high, low, close);
@@ -110,11 +113,11 @@ function myFunction_set() {
     var rs = String(getComputedStyle(r).getPropertyValue('--blue'));
 
     if (rs === "#0c1483") {
-        document.getElementById("themebtn").value = "Light theme"
+        document.getElementById("themebtn").value = "light theme"
         r.style.setProperty('--blue', '#e2effb');
         r.style.setProperty('--lightblue', '#0c1483');
     } else if (rs.valueOf == "#e2effb".valueOf) {
-        document.getElementById("themebtn").value = "Dark theme"
+        document.getElementById("themebtn").value = "dark theme"
         r.style.setProperty('--blue', '#0c1483');
         r.style.setProperty('--lightblue', '#e2effb');
     }
@@ -146,7 +149,7 @@ function updateToday(open, high, low, close) {
 
     delta = parseFloat((close[close.length - 1] - open) / open * 100).toFixed(2);;
     let temp = delta > 0 ? "green" : "red";
-    document.getElementById("today").innerHTML = 'Tänäiset: <br>delta: '
+    document.getElementById("today").innerHTML = 'tänäiset: <br>delta: '
         + '<span style=color:' + temp + '>' + delta + '%</span><br>open: '
         + open + ' €<br>high: '
         + high + ' €<br>low: '
