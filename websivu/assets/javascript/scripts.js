@@ -8,10 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('https://api.binance.com/api/v3/klines?symbol=' + ticker + '&interval=1d&limit=30')
         .then(response => response.json())
         .then(data => {
-            //const label =glabel
             const close = new Array();
             const pvm = new Array();
-
 
             const temp = JSON.parse(JSON.stringify(data));
             let open = parseFloat(temp[temp.length - 1][1]);
@@ -21,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 close.push(parseFloat(temp[i][4]))
                 pvm.push(new Date(temp[i][0]).toLocaleDateString())
             }
-
-            
+      
             const ctx = document.getElementById('myChart');
             myline = new Chart(ctx, {
                 type: 'line',
@@ -76,7 +73,6 @@ lite.addEventListener("click", () => {
     temp();
 });
 
-
 function temp() {
     fetch('https://api.binance.com/api/v3/klines?symbol=' + ticker + '&interval=1d&limit=30')
         .then(response => response.json())
@@ -109,8 +105,6 @@ function temp() {
 }
 
 
-
-
 var r = document.querySelector(':root');
 r.style.setProperty('--blue', '#0c1483');
 r.style.setProperty('--lightblue', '#e2effb');
@@ -130,22 +124,8 @@ function myFunction_set() {
     temp()
 }
 
-document.addEventListener('mouseover', () => {
-    //document.getElementById('bitcoin').innerHTML=document.body.clientWidth;
-
-    var height = document.body.clientHeight;
-    var width = document.body.clientWidth;
-
-    if (document.body.clientWidth < 640) {
-        myline.resize(width - 20, height);
-    } else {
-        myline.resize(width / 2, height);
-    }
-})
-
 
 function updateToday(open, high, low, close) {
-
     let sum = 0;
     for (let i = 0; i < 20; i++) {
         sum += close[close.length - 1 - i]
@@ -161,8 +141,19 @@ function updateToday(open, high, low, close) {
         + low + ' €<br>close: '
         + close[close.length - 1] + ' €<br>SMA20: '
         + parseFloat(sum).toFixed(2);
-
 }
+
+document.addEventListener('mouseover', () => {
+    //document.getElementById('bitcoin').innerHTML=document.body.clientWidth;
+    var height = document.body.clientHeight;
+    var width = document.body.clientWidth;
+
+    if (document.body.clientWidth < 750) {
+        myline.resize(width -20, height);
+    } else {
+        myline.resize(width / 2, height);
+    }
+})
 
 
 /*
