@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             updateToday(open, high, low, close);
         })
+        .then(
+            alert("Valitse vasemmalta menusta krypto.")
+        )
 });
 
 const btc = document.getElementById('bitcoin');
