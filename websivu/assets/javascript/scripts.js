@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateToday(open, high, low, close);
         })
         .then(
-            setTimeout(()=>{alert("Valitse vasemmalta menusta krypto.")},1000) 
+            setTimeout(()=>{alert("Valitse vasemmalta menusta kryptovaluutta.")},1000) 
         )
 });
 
