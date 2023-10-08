@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
-            document.getElementById(glabel).innerHTML='<i>bitcoin</i>'
+            document.getElementById(glabel).innerHTML='<i>_bitcoin</i>'
 
             updateToday(open, high, low, close);
         })
@@ -58,7 +58,7 @@ btc.addEventListener("click", () => {
     document.getElementById(glabel).innerHTML=glabel;
     ticker = "BTCEUR"
     glabel = "bitcoin"
-    btc.innerHTML='<i>bitcoin</i>'
+    btc.innerHTML='<i>_bitcoin</i>'
     temp();
 });
 const eth = document.getElementById('ethereum');
@@ -66,7 +66,7 @@ eth.addEventListener("click", () => {
     document.getElementById(glabel).innerHTML=glabel
     ticker = "ETHEUR"
     glabel = "ethereum"
-    eth.innerHTML='<i>ethereum</i>'
+    eth.innerHTML='<i>_ethereum</i>'
     temp();
 });
 const lite = document.getElementById('litecoin');
@@ -74,7 +74,7 @@ lite.addEventListener("click", () => {
     document.getElementById(glabel).innerHTML=glabel;
     ticker = "LTCEUR"
     glabel = "litecoin"
-    lite.innerHTML='<i>litecoin</i>'
+    lite.innerHTML='<i>_litecoin</i>'
     temp();
 });
 const doge = document.getElementById('dogecoin');
@@ -82,7 +82,7 @@ doge.addEventListener("click", () => {
     document.getElementById(glabel).innerHTML=glabel;
     ticker = "DOGEEUR"
     glabel = "dogecoin"
-    doge.innerHTML='<i>dogecoin</i>'
+    doge.innerHTML='<i>_dogecoin</i>'
     temp();
 });
 
