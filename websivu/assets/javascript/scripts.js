@@ -1,6 +1,7 @@
 
 
 let myline;
+var r = document.querySelector(':root');
 let ticker = "BTCEUR"
 let glabel = "bitcoin"
 
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 close.push(parseFloat(temp[i][4]))
                 pvm.push(new Date(temp[i][0]).toLocaleDateString())
             }
-      
+
             const ctx = document.getElementById('myChart');
             myline = new Chart(ctx, {
                 type: 'line',
@@ -42,39 +43,49 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
+            document.getElementById(glabel).innerHTML='<i>bitcoin</i>'
 
             updateToday(open, high, low, close);
         })
         .then(
-            setTimeout(()=>{alert("Valitse vasemmalta menusta kryptovaluutta.")},1000) 
+            setTimeout(() => { alert("Valitse vasemmalta menusta kryptovaluutta.") }, 1000)
         )
 });
 
+
 const btc = document.getElementById('bitcoin');
 btc.addEventListener("click", () => {
+    document.getElementById(glabel).innerHTML=glabel;
     ticker = "BTCEUR"
     glabel = "bitcoin"
+    btc.innerHTML='<i>bitcoin</i>'
     temp();
-
 });
 const eth = document.getElementById('ethereum');
 eth.addEventListener("click", () => {
+    document.getElementById(glabel).innerHTML=glabel
     ticker = "ETHEUR"
     glabel = "ethereum"
-    temp();
-});
-const doge = document.getElementById('dogecoin');
-doge.addEventListener("click", () => {
-    ticker = "DOGEEUR"
-    glabel = "dogecoin"
+    eth.innerHTML='<i>ethereum</i>'
     temp();
 });
 const lite = document.getElementById('litecoin');
 lite.addEventListener("click", () => {
+    document.getElementById(glabel).innerHTML=glabel;
     ticker = "LTCEUR"
     glabel = "litecoin"
+    lite.innerHTML='<i>litecoin</i>'
     temp();
 });
+const doge = document.getElementById('dogecoin');
+doge.addEventListener("click", () => {
+    document.getElementById(glabel).innerHTML=glabel;
+    ticker = "DOGEEUR"
+    glabel = "dogecoin"
+    doge.innerHTML='<i>dogecoin</i>'
+    temp();
+});
+
 
 function temp() {
     fetch('https://api.binance.com/api/v3/klines?symbol=' + ticker + '&interval=1d&limit=30')
@@ -98,8 +109,8 @@ function temp() {
             myline.data.datasets[0].data = close;
             myline.data.datasets[0].label = glabel;
             myline.data.labels = pvm;
-            myline.data.datasets[0].borderColor=document.getElementById("themebtn").value == "light theme"?'#ffffff':'#000000',
-            myline.update();
+            myline.data.datasets[0].borderColor = document.getElementById("themebtn").value == "light theme" ? '#ffffff' : '#000000',
+                myline.update();
 
             updateToday(open, high, low, close);
         })
@@ -108,12 +119,12 @@ function temp() {
 }
 
 
-var r = document.querySelector(':root');
+
 r.style.setProperty('--blue', '#0c1483');
 r.style.setProperty('--lightblue', '#e2effb');
 function myFunction_set() {
-    var rs = String(getComputedStyle(r).getPropertyValue('--blue'));
 
+    var rs = String(getComputedStyle(r).getPropertyValue('--blue'));
     if (rs === "#0c1483") {
         document.getElementById("themebtn").value = "light theme"
         r.style.setProperty('--blue', '#e2effb');
@@ -152,7 +163,7 @@ document.addEventListener('mouseover', () => {
     var width = document.body.clientWidth;
 
     if (document.body.clientWidth < 750) {
-        myline.resize(width -20, height);
+        myline.resize(width - 20, height);
     } else {
         myline.resize(width / 2, height);
     }
@@ -169,6 +180,9 @@ eth.addEventListener('mouseover', () => {
 doge.addEventListener('mouseover', () => {
     doge.style.color = "green";
 })
+lite.addEventListener('mouseover', () => {
+    lite.style.color = "green";
+})
 btc.addEventListener('mouseout', () => {
     btc.style.color = "#0c1483";
 })
@@ -177,4 +191,7 @@ eth.addEventListener('mouseout', () => {
 })
 doge.addEventListener('mouseout', () => {
     doge.style.color = r.style.getPropertyValue('--blue');
+})
+lite.addEventListener('mouseout', () => {
+    lite.style.color = r.style.getPropertyValue('--blue');
 })*/
