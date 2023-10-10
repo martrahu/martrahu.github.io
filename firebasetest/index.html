@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Firebase testi</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <form action="" id="contactForm">
+            <div id="alert"></div>
+
+            <div class="inputBox">
+                <input type="text" id="name" placeholder="Nimimerkki" />
+            </div>
+
+            <div class="inputBox">
+                <textarea id="teksti" cols="30" rows="5" placeholder="Kommentti"></textarea>
+            </div>
+
+            <div class="inputBox">
+                <button type="submit">Lisää</button>
+            </div>
+        </form>
+
+    </div>
+    <h2 id="aa">Aikaisemmat kirjaukset:</h2>
+    <div id="aikaisemmat">
+
+
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
+
+
+    <script src="./mail.js"></script>
+</body>
+
+</html>
