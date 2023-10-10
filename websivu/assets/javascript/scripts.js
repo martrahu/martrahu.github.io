@@ -152,7 +152,7 @@ function updateToday(open, high, low, close) {
         + '<span style=color:' + temp + '>' + delta + '%</span><br>open: '
         + open + ' €<br>high: '
         + high + ' €<br>low: '
-        + low + ' €<br>close: '
+        + low + ' €<br>nykyhinta: '
         + close[close.length - 1] + ' €<br>SMA20: '
         + parseFloat(sum).toFixed(2);
 }
