@@ -1,7 +1,7 @@
 
 
 let myline;
-var r = document.querySelector(':root');
+const r = document.querySelector(':root');
 let ticker = "BTCEUR"
 let glabel = "bitcoin"
 

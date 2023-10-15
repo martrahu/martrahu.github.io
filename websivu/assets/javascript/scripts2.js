@@ -1,9 +1,9 @@
 
-var r = document.querySelector(':root');
+const r = document.querySelector(':root');
 r.style.setProperty('--blue', '#0c1483');
 r.style.setProperty('--lightblue', '#e2effb');
 function myFunction_set() {
-    var rs = String(getComputedStyle(r).getPropertyValue('--blue'));
+    let rs = String(getComputedStyle(r).getPropertyValue('--blue'));
 
     if (rs === "#0c1483") {
         document.getElementById("themebtn").value = "light theme"
