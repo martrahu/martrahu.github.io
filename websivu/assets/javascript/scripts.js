@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: {
                     labels: pvm,
                     datasets: [{
-                        label: glabel,
+                        label: glabel+"/euro",
                         data: close,
                         borderWidth: 1,
                         fill: false,
@@ -107,7 +107,7 @@ function temp() {
             }
 
             myline.data.datasets[0].data = close;
-            myline.data.datasets[0].label = glabel;
+            myline.data.datasets[0].label = glabel+"/euro";
             myline.data.labels = pvm;
             myline.data.datasets[0].borderColor = document.getElementById("themebtn").value == "light theme" ? '#ffffff' : '#000000',
                 myline.update();
