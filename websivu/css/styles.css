@@ -23,11 +23,11 @@
     grid-area: footer;
 }
 
-.oikSivu {   
+.oikSivu {
     grid-area: oikSivu;
 }
 
-.today {   
+.today {
     grid-area: today;
 }
 
@@ -41,12 +41,32 @@
 }
 
 
+/* unvisited link */
+a:link {
+    color: var(--blue);
+}
+
+/* visited link */
+a:visited {
+    color: var(--blue);
+}
+
+/* mouse over link */
+a:hover {
+    color: green;
+}
+
+/* selected link */
+a:active {
+    color: var(--blue);
+}
+
 
 @media (min-width:751px) {
 
     .container {
         display: grid;
-        grid-template-columns: 11em 2fr 1fr ;
+        grid-template-columns: 11em 2fr 1fr;
         grid-template-areas:
             'header header  header'
             'menu main oikSivu'
@@ -67,9 +87,14 @@
         text-align: center;
     }
 
-    .menu {       
+    .menu {
         font-size: 24px;
         line-height: 40px;
+    }
+
+    .tickerList {
+        list-style-type: none;
+        padding-left: 10px;
     }
 
     .oikSivu {
@@ -84,25 +109,6 @@
 
     }
 
-    /* unvisited link */
-    a:link {
-        color: var(--blue);
-    }
-
-    /* visited link */
-    a:visited {
-        color: var(--blue);
-    }
-
-    /* mouse over link */
-    a:hover {
-        color: green;
-    }
-
-    /* selected link */
-    a:active {
-        color: var(--blue);
-    }
 
     @keyframes fadein {
         from {
@@ -119,8 +125,6 @@
         animation-duration: 2s;
     }
 
-
-
 }
 
 @media (max-width:750px) {
@@ -134,12 +138,22 @@
         gap: 10px;
         background-color: var(--blue);
         padding: 10px;
-        color:  var(--blue);
+        color: var(--blue);
 
     }
 
-    .header{
+    .header {
         text-align: center;
+    }
+
+    .tickerList {
+        display: flex;
+        list-style-type: none;
+        padding-left: 10px
+    }
+
+    .tick {
+        margin: 5px;
     }
 
     .oikSivu {
