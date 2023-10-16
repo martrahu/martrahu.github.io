@@ -7,7 +7,12 @@ let glabel = "bitcoin"
 
 document.addEventListener('DOMContentLoaded', () => {
     fetch('https://api.binance.com/api/v3/klines?symbol=' + ticker + '&interval=1d&limit=30')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error();
+            }
+            return response.json();
+        })
         .then(data => {
             const close = new Array();
             const pvm = new Array();
@@ -27,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: {
                     labels: pvm,
                     datasets: [{
-                        label: glabel+"/euro",
+                        label: glabel + "/euro",
                         data: close,
                         borderWidth: 1,
                         fill: false,
@@ -43,54 +48,63 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
-            document.getElementById(glabel).innerHTML='<i>_bitcoin</i>'
+            document.getElementById(glabel).innerHTML = '<i>_bitcoin</i>'
 
             updateToday(open, high, low, close);
         })
         .then(
             setTimeout(() => { alert("Valitse vasemmalta menusta kryptovaluutta.") }, 1000)
         )
+        .catch(error => {
+            console.error('Jotain meni pieleen.', error);
+        })
 });
 
 
 const btc = document.getElementById('bitcoin');
 btc.addEventListener("click", () => {
-    document.getElementById(glabel).innerHTML=glabel;
+    document.getElementById(glabel).innerHTML = glabel;
     ticker = "BTCEUR"
     glabel = "bitcoin"
-    btc.innerHTML='<i>_bitcoin</i>'
+    btc.innerHTML = '<i>_bitcoin</i>'
     temp();
 });
 const eth = document.getElementById('ethereum');
 eth.addEventListener("click", () => {
-    document.getElementById(glabel).innerHTML=glabel
+    document.getElementById(glabel).innerHTML = glabel
     ticker = "ETHEUR"
     glabel = "ethereum"
-    eth.innerHTML='<i>_ethereum</i>'
+    eth.innerHTML = '<i>_ethereum</i>'
     temp();
 });
 const lite = document.getElementById('litecoin');
 lite.addEventListener("click", () => {
-    document.getElementById(glabel).innerHTML=glabel;
+    document.getElementById(glabel).innerHTML = glabel;
     ticker = "LTCEUR"
     glabel = "litecoin"
-    lite.innerHTML='<i>_litecoin</i>'
+    lite.innerHTML = '<i>_litecoin</i>'
     temp();
 });
 const doge = document.getElementById('dogecoin');
 doge.addEventListener("click", () => {
-    document.getElementById(glabel).innerHTML=glabel;
+    document.getElementById(glabel).innerHTML = glabel;
     ticker = "DOGEEUR"
     glabel = "dogecoin"
-    doge.innerHTML='<i>_dogecoin</i>'
+    doge.innerHTML = '<i>_dogecoin</i>'
     temp();
 });
 
 
 function temp() {
     fetch('https://api.binance.com/api/v3/klines?symbol=' + ticker + '&interval=1d&limit=30')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error();
+            }
+            return response.json();
+        })
         .then(data => {
+
             document.getElementById("kuva").src = "/websivu/assets/pictures/" + ticker.substring(0, ticker.length - 3).toLowerCase() + ".png"
             //document.getElementById("themebtn").value = "/websivu/assets/pictures/"+ticker.toLowerCase().substring(0, ticker.length - 3).toString() + ".png"
             const close = new Array();
@@ -107,15 +121,16 @@ function temp() {
             }
 
             myline.data.datasets[0].data = close;
-            myline.data.datasets[0].label = glabel+"/euro";
+            myline.data.datasets[0].label = glabel + "/euro";
             myline.data.labels = pvm;
             myline.data.datasets[0].borderColor = document.getElementById("themebtn").value == "light theme" ? '#ffffff' : '#000000',
                 myline.update();
 
             updateToday(open, high, low, close);
         })
-
-
+        .catch(error => {
+            console.error('Jotain meni pieleen.', error);
+        })
 }
 
 
