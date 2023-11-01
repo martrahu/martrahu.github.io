@@ -33,7 +33,7 @@ Use of classes and IDs to style specific elements.  **<--On olemassa**
 
 Learn about CSS Selectors
 3/5:
-Implementation of responsive design elements.  **<--On olemassa**
+Implementation of responsive design elements.  **<--On olemassa (browserin ikkunan kokoa muuttaessa layout muuttuu)**
 
 Learn about Responsive Design
 4/5:
