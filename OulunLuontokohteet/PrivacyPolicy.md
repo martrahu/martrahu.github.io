@@ -1,4 +1,4 @@
-https://www.termsfeed.com/live/4a17e360-4abf-423b-9c4a-b6c3086bfc8d
+
 
 
 # Privacy Policy
