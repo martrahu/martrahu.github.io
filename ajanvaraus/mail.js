@@ -27,7 +27,7 @@ function submitForm(e) {
 
     saveMessages(name, teksti);
   
-    document.getElementById('alert').innerHTML = "<b>Kirjaus lähetetty firebase tietokantaan</b>"
+    document.getElementById('alert').innerHTML = "<b>Ajanvaraus lähetetty tietokantaan</b>"
     setTimeout(() => {
       document.getElementById('alert').innerHTML = ""
     }, 3000);
